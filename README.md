@@ -2,6 +2,11 @@
 
 ## Sistema web para gerenciamento de atividades Help Desk
 
+### Desenvolvido por:
+- Adriana Mataveli Viana
+- José Ricardo Cezario
+- Vanessa Souto Ferreira
+
 ### Ferramentas utilizadas:
 - Linguagem de programação: PHP e Javascript.
 - Interfaces: HTML e CSS.

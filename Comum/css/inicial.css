@@ -1,0 +1,52 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: Melvetica Meue, Helvetica, Arial, sans-serif;
+}
+.imagem01{
+	width: 100%;
+	height: 800px;
+	background-image: url(../imagens/imagem01.jpg);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.imagem01 h1 {
+	padding-top: 250px;
+}
+
+
+.imagem02{
+	width: 100%;
+	height: 800px;
+	background-image: url("../imagens/imagem02.jpg"); 
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.imagem03{
+	width: 100%;
+	height: 800px;
+	background-image: url("../imagens/imagem03.jpg");
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.faixa{
+	width: 100%;
+	height: 250px;
+	background-color: #ffffff;
+	}
+.faixa1{
+	width: 100%;
+	height: 250px;
+	background-color: #ffffff;
+	color: 
+	}

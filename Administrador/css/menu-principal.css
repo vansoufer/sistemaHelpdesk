@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  height: 100%;
+  background-color: #1D2731;
+  position: fixed;
+  border-right: 1px solid #0B3C5D;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  font-family: "Times";
+  text-transform: uppercase;
+  text-align: center;
+  padding: 15px;
+  background-color: #D9B310;
+}
+
+.wrapper .sidebar ul {
+  list-style: none;
+  margin: 0;
+}
+
+.wrapper .sidebar ul li{
+  cursor: pointer;
+  padding: 15px;
+  width: 250px;
+  position: relative;
+  background-color: #1D2731;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; 
+}
+
+.wrapper .sidebar ul ul {
+  transition: all 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 101%;
+  top: -2%;
+}
+
+.wrapper .sidebar ul li:hover {
+  background-color: #328CC1;
+}
+
+.wrapper .sidebar ul li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  text-decoration: none;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+
+/* Ajusta o menu horizontal*/
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 250px;
+  top: 0;
+}
+
+.wrapper .main_content .header {
+  padding: 21px;
+  background-color: #0B3C5D;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+}
+
+.wrapper .main_content .header ul li {
+  position: relative;
+  left: 65%;
+  padding-left: 25px;
+  list-style-type: none;
+  display: inline-block;
+}
+
+.wrapper .main_content .header a {
+  color: white;
+}
+
+span {
+  padding-right: 15px;
+}
+
+

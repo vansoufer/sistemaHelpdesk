@@ -13,12 +13,7 @@
 - Editor: Notepad++.
 - Frameworks: Bootstrap e pure min.
 
-### Instruções:
-- Baixar arquivos e inserir pasta dentro do localhost ( htdocs no xampp)
-- Dar start no servidor apache do xampp
-- Inserir a url do localhost no navegador.
-
-### Funções:
+### Funcionalidades:
 - Cadastro de usuários com níveis de acessos para: usuário comum, administrador e tecnicos.
 - Cadastro de ativos.
 - Abertura e encaminhamento de solicitações.

@@ -10,17 +10,57 @@
 }
 
 .wrapper{
+  
   display: flex;
   position: relative;
 }
 
-.wrapper .sidebar{
-  height: 100%;
-  background-color: #1D2731;
-  position: fixed;
-  border-right: 1px solid #0B3C5D;
+.wrapper .main_content .header {
+  background-color: #134c6f;
+  padding:11px;
+  height: 70px;
+  align-items:center;
+  display: flex;
+}
+.wrapper .main_content .header .left{
+  display: flex;
+  flex:1;
+  align-items:center;
+}
+.wrapper .main_content .header .left button{
+  padding-left: 10px;
+  font-size: 40px;
+  margin-right: 20px;
+  font-weight: 300;
+  background: transparent;
+  border: none;
+  color: #fff;
+  margin-right: 20px;
+  cursor:pointer;
+}
+.wrapper .main_content .header .left button:hover{
+  opacity:0.8;
+}
+.wrapper .main_content .header .logout{
+  font-size: 30px;
+  color: #fff;
+  padding-right: 15px;
+}
+.wrapper .main_content .header .logout:hover{
+  opacity: 0.8;
 }
 
+.wrapper .sidebar{
+  margin-top: 70px;
+  height: calc(100% - 70px);
+  background-color: #134c6f;
+  position: fixed;
+  border-right: 1px solid #0B3C5D;
+  display: none;
+}
+.wrapper .sidebar.block{
+  display: block;
+}
 .wrapper .sidebar h2{
   color: #fff;
   font-family: "Times";
@@ -40,7 +80,7 @@
   padding: 15px;
   width: 250px;
   position: relative;
-  background-color: #1D2731;
+  background-color: #134c6f;
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -85,13 +125,12 @@
 
 .wrapper .main_content{
   width: 100%;
-  margin-left: 250px;
   top: 0;
 }
 
 .wrapper .main_content .header {
   padding: 11px;
-  background-color: #0a2742;
+  background-color: #134c6f;
   color: #fff;
   position: fixed;
   width: 100%;
@@ -107,6 +146,10 @@
 
 .wrapper .main_content .header a {
   color: white;
+}
+.wrapper .main_content .header .logout i{
+  font-size: 30px;
+  color: #fff;
 }
 
 span {

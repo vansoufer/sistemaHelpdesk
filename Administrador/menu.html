@@ -6,20 +6,16 @@
     function carregar(pagina){
           $("#conteudo").load(pagina);
       }
+      function sidebarOpen(){
+        const elemento = document.querySelector('.sidebar');
+        elemento.classList.toggle('block');
+      }
   </script>
 
   <link rel="stylesheet" type="text/css" href="../css/menu-principal.css">
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="utf-8">
-  <style>
- 
-	.wrapper .main_content .header {
-		background-color: #0a2742;
-		padding:11px;
-		align-items:right;
-	}
-
-	</style>
 
   <title>ARV-DESK</title>
 </head>
@@ -27,17 +23,12 @@
 <body>
 <div class="wrapper">
     <div class="sidebar">
-      <h2>ARV-DESK</h2>
         <ul class="mainmenu">
           <li><a href="home.php"><i class="fas fa-home"></i>Home</a></li>
-		  
-		  
-          
-
           <li><a href="#"><i class="fas fa-user"></i>Usuários</a>
             <ul>
               <li><a href="form-cad-usuarios.php"><span class="fa fa-plus"></span>Cadastrar</a></li>
-			  <li><a href="form-cons-usuarios.php"><span class="fa fa-search"></span>Consultar</a></li>
+			        <li><a href="form-cons-usuarios.php"><span class="fa fa-search"></span>Consultar</a></li>
               
             </ul>
           </li>
@@ -54,8 +45,8 @@
           <li><a href="#"><i class="fas fa-headset"></i>Chamados</a>
             <ul>
               <li><a href="form-cad-chamados.php"><span class="fa fa-plus"></span>Efetuar</a></li>
-			  <li><a href="form-cons-chamados.php"><span class="fa fa-search"></span>Consultar</a></li>
-			  <li><a href="visualizar-chamados.php"><span class="fa fa-search"></span>Visualizar</a></li>
+			        <li><a href="form-cons-chamados.php"><span class="fa fa-search"></span>Consultar</a></li>
+			        <li><a href="visualizar-chamados.php"><span class="fa fa-search"></span>Visualizar</a></li>
               
             </ul>
           </li>
@@ -65,8 +56,6 @@
               
             </ul>
           </li>
-          <li><a href="contato.php"><i class="fas fa-address-book"></i>Contato</a></li>
-          <li><a href="sobre.php"><i class="fas fa-address-card"></i>Sobre</a></li>
           
         </ul> 
 
@@ -75,9 +64,12 @@
     <div class="main_content">
 
         <div class="header">
-          <ul>
-            <li><a href="logout.php"><img src="../imagens/sair.png" alt="some text" width=25 height=25><br><h6> Sair</h6></a></li>
-          </ul>
+          <div class="left">
+            <button onclick="sidebarOpen()"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            <a href="home.php">ARV- DESK</a>
+          </div>
+          <a href="logout.php" class="logout"><i class="fa fa-sign-out"></i></a>
+          
         </div>
 
     </div>

@@ -4,11 +4,12 @@
 }
 
 body {
-	background-color: #D3D3D3;
+	background-color: #fff;
 }
 
 form {
-	margin-left: 22%;
+	width: 100%;
+    padding: 0 20px;
 	margin-top: 80px;
 }
 

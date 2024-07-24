@@ -20,14 +20,14 @@
 	$nome = $_POST['nome'];
 	$sobrenome = $_POST['sobrenome'];
 	$login = $_POST['login'];
-	$senha = $_POST['senha'];
+	$hash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 	$email = $_POST['email'];
 	$nivel = $_POST['nivel'];
 	$celular = $_POST['celular'];
 	
 	$sql = mysqli_query($conexao,"INSERT INTO  usuarios 
 		(status, cpf, nome, sobrenome, login, senha, email, nivel, celular) VALUES 
-		('$status', '$cpf', '$nome', '$sobrenome', '$login', '$senha', '$email', '$nivel', '$celular')");
+		('$status', '$cpf', '$nome', '$sobrenome', '$login', '$hash', '$email', '$nivel', '$celular')");
 	echo "<form>
 	<div class='grupo' align='center'>
 	<img src='../imagens/sucesso.png' alt='some text' width=80 height=80 align='center'><br><br>

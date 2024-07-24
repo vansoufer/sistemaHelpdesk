@@ -36,9 +36,10 @@
 	$email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_STRING);
 	$nivel = filter_input(INPUT_POST,'nivel', FILTER_SANITIZE_STRING);
 	$celular = filter_input(INPUT_POST,'celular', FILTER_SANITIZE_STRING);
+	$hash = password_hash($senha, PASSWORD_DEFAULT);
 	
 	$chamada = "UPDATE usuarios SET cpf='$cpf', status='$status', sexo='$sexo', cidade='$cidade', nome='$nome', sobrenome='$sobrenome', login='$login',   
-									senha='$senha', email='$email', nivel='$nivel', celular='$celular' WHERE id='$id'"; 
+									senha='$hash', email='$email', nivel='$nivel', celular='$celular' WHERE id='$id'"; 
 
 	$resultado_usuario = mysqli_query($conexao, $chamada);
 	

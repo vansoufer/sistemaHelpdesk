@@ -22,15 +22,15 @@
 	$sobrenome = $_POST['sobrenome'];
 	$cidade = $_POST['cidade'];
 	$login = $_POST['login'];
-	$senha = $_POST['senha'];
 	$email = $_POST['email'];
 	$nivel = $_POST['nivel'];
 	$celular = $_POST['celular'];
 	$descricao = $_POST´['descricao'];
+	$hash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 	
 	$sql = mysqli_query($conexao,"INSERT INTO  usuarios 
 		( cpf, status, sexo, nome, sobrenome, cidade, login, senha, email, nivel, celular, descricao) VALUES 
-		('$cpf', '$status', '$sexo', '$nome', '$sobrenome', '$cidade', '$login', '$senha', '$email', '$nivel', '$celular', '$descricao')");
+		('$cpf', '$status', '$sexo', '$nome', '$sobrenome', '$cidade', '$login', '$hash', '$email', '$nivel', '$celular', '$descricao')");
 	echo "<form>
 	<div class='grupo' align='center'>
 	<img src='../imagens/sucesso.png' alt='some text' width=80 height=80 align='center'><br><br>

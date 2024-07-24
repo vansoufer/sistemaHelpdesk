@@ -34,41 +34,37 @@ $senha = $_POST["senha"];
 $loginSeguro = addslashes($login);
 $senhaSegura = addslashes($senha);
 
-$sql = mysqli_query($conexao,"SELECT * FROM usuarios WHERE login = '$loginSeguro' and senha = '$senhaSegura'") or die (mysqli_error());
-$row = mysqli_num_rows($sql);
+$sql = mysqli_query($conexao,"SELECT * FROM usuarios WHERE login = '$login' LIMIT 1") or die (mysqli_error());
+$userData = mysqli_fetch_assoc($sql);
 
+if(password_verify($senha, $userData['senha'])){
+	$nivel = $userData['nivel'];
+	$nome = $userData['nome'];
 
-if ($row == 1) {
+	if($nivel == 'adm') {
+		$_SESSION["login"]=$_POST["login"];
+		$_SESSION["senha"]=$_POST["senha"];
+		$_SESSION['adm'] = $nome;
+	}
+	else if ($nivel == 'tec') {
+		$_SESSION["login"]=$_POST["login"];
+		$_SESSION["senha"]=$_POST["senha"];
+		$_SESSION['tec'] = $nome;
+	}
 
-	while($percorrer = mysqli_fetch_array($sql)){
-		$nivel = $percorrer['nivel'];
-		$nome = $percorrer['nome'];
-
-		if($nivel == 'adm') {
-			$_SESSION["login"]=$_POST["login"];
-			$_SESSION["senha"]=$_POST["senha"];
-			$_SESSION['adm'] = $nome;
-		}
-		else if ($nivel == 'tec') {
-			$_SESSION["login"]=$_POST["login"];
-			$_SESSION["senha"]=$_POST["senha"];
-			$_SESSION['tec'] = $nome;
-		}
-
-		else if ($nivel == 'comum') {
-			$_SESSION["login"]=$_POST["login"];
-			$_SESSION["senha"]=$_POST["senha"];
-			$_SESSION['comum'] = $nome;
-		}
+	else if ($nivel == 'comum') {
+		$_SESSION["login"]=$_POST["login"];
+		$_SESSION["senha"]=$_POST["senha"];
+		$_SESSION['comum'] = $nome;
 	}
 
 	echo "<br><br><center><span class='foco-sucesso'>Efetuando Login!</span><br><br> Aguarde um instante.</center>";
 	echo "<script>loginsucessfully()</script>";
-	
-} else {
+}else{
 	echo "<br><br><center><span class='foco-erro'>Dados inválidos!</span><br><br>Aguarde um instante e tente novamente.</center>";
 	echo "<script>loginfailed()</script>";
 }
+
 echo ' <br><center><div class="loader"></div></center>';
 ?>
 

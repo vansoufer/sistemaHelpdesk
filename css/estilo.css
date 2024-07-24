@@ -76,12 +76,12 @@ h1 {
 	font-weight: bold;
 }
 
-.loginbox input {
+.loginbox input, .form-forgot-password input {
 	width: 100%;
 	margin-bottom: 20px;
 }
 
-.loginbox input[type="text"], input[type="password"] {
+.loginbox input[type="text"], input[type="password"], .form-forgot-password input[type="text"]{
 	border: none;
 	border-bottom: 1px solid #000;
 	background: transparent;
@@ -91,7 +91,7 @@ h1 {
 	font-size: 16px;
 }
 
-.loginbox input[type="submit"] {
+.loginbox input[type="submit"], .form-forgot-password button{
 	border: none;
 	outline: none;
 	width: 200px;
@@ -102,8 +102,15 @@ h1 {
 	font-size: 18px;
 	border-radius: 20px;
 }
-
-.loginbox input[type="submit"]:hover {
+.form-forgot-password button{
+	width:150px;
+}
+.form-forgot-password button.default{
+	border: 1px solid #134c6f;
+	background-color: #fff;
+	color:#134c6f;
+}
+.loginbox input[type="submit"]:hover, .form-forgot-password button:hover{
 	cursor: pointer;
 	opacity:0.6;
 }
@@ -117,5 +124,64 @@ h1 {
 	text-decoration: none;
 	font-size: 12px;
 	line-height: 20px;
+	color: #134c6f;
+}
+.body-forgot-password{
+	background: #134c6f;
+}
+.forgot-password{
+	margin: 50px;
+    justify-content: center;
+    display: flex;
+}
+.form-forgot-password i{
+	font-size: 60px;
+}
+.form-forgot-password a.go-back{
+	font-size: 12px;
+	text-decoration: underline;
+	color:#134c6f;
+	font-weight: 600;
+}
+.forgot-password .content{
+	padding: 40px;
+    border-radius: 8px;
+    background: #fff;
+}
+.forgot-password .content h2{
+	text-align: center;
+	padding-bottom: 20px;
+}
+.form-forgot-password fieldset{
+    padding: 20px;
+    display: flex;
+    border: none;
+}
+.form-forgot-password fieldset .campo{
+    padding-right: 20px;
+	width: 50%;
+}
+.form-forgot-password fieldset .campo.select{
+	display: flex;
+    flex-direction: column;
+}
+.form-forgot-password fieldset .campo.select label{
+	padding-bottom: 10px;
+}
+.form-forgot-password fieldset .campo.select select{
+	width:100%;
+	padding:10px;
+}
+.form-forgot-password fieldset .campo label{
+	font-size: 14px;
+}
+.form-forgot-password fieldset textarea{
+	margin-top: 10px;
+	padding:5px;
+}
+.form-forgot-password .action{
+	justify-content: center;
+}
+.form-forgot-password{ 
 	color: #134c6f;
 }

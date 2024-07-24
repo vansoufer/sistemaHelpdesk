@@ -6,122 +6,69 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
-	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/autenticacao.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>ARV-DESK</title>
-	<style>
-	body{
-	background: url(./imagens/bg-index.png)no-repeat;
-	}
-	.content{
-		background-color: white;
-		margin-left:20%;
-		margin-right:20%;
-		margin-top:5%;
-		align: center;
-	}
-	.loginbox{
-	align: center;
-	}
-	
-	</style>
+
 </head>
-<body>
-<div class="back">
+<body class="body-forgot-password">
+	<script>
+		function goBack(){
+			window.location = 'index.html';
+		}
+	</script>
+<div class="back forgot-password">
 <div class="content">
-	<form class="form" method="post" action="cad-chamado-senha.php">
-		<div class="loginbox" align=" center">
-		<img src="imagens/user.png" class="avatar" width="60px" height="60px" align="center" >
-			<h1>Preencha o formulário para enviar a solicitação ao administrador:</h1>
-			</div>
+	<form class="form-forgot-password" method="post" action="cad-chamado-senha.php">
 		
-			<fieldset class="grupo">
-					<div class="campo"><br>
-						<label for=tipo>Tipo Chamado</label>
-							<select name="tipo" id="tipo" required>
-								<option disabled>---</option>
-								<option value="1">Incidente</option>
-								<option value="2" selected>Requisição</option>
-							</select>
-					</div><br>
-
-					<div class="campo">
-						<label for="dtAbertura">Data Abertura</label>
-							<input type="date" name="dtAbertura" id="dtAbertura" required>
-					</div><br>
-					
-					
-			</fieldset>
-
+			<h1>ARV-DESK</h1>
+			<h2>Preencha o formulário para enviar a solicitação ao administrador:</h1>
+	
 			<fieldset class="grupo">
 				
-
-					
-
 					<div class="campo">
 						<label for=NomeRequerente>Nome do Requerente</label>
-							<input type="text" name="NomeRequerente" id="NomeRequerente" required>
-					</div><br>
+							<input type="text" name="NomeRequerente" id="NomeRequerente" placeholder="Digite o seu nome" required>
+					</div>
 					<div class="campo">
-						<label for=setor>Setor</label>
-							<input type="text" name="setor" id="setor" required>
-					</div><br>
+						<label for="email">E-mail</label>
+						<input type="text" name="email" id="email" placeholder="Digite o seu e-mail" required>
+					</div>
 					
 			</fieldset>		
-			<fieldset class="grupo">		
-					<div class="campo">
-						<label for=tpReparo>Qual tipo de reparo:</label>
-							<select name="tpReparo" id="tpReparo" required>
-								<option disabled>---</option>
-								<option value="1">Reparo de Computador</option>
-								<option value="2">Reparo de Impressora</option>
-								<option value="3">Reparo de Software</option>
-								<option value="4">Reparo de Maquina</option>
-								<option value="5" selected>Outros</option>
-							</select>
-					</div><br>
-					
-
-					<div class="campo">
-						<label for=status>Status</label>
-							<select name="status" id="status" required>
-								<option disabled>---</option>
-								<option value="1" selected>Pendente</option>
-								<option value="2">Em andamento</option>
-								<option value="0">Encerrado</option>
-							</select>
-					</div><br>
-			</fieldset>
+			
 			<fieldset class="grupo">
-					<div class="campo">
-						<label for=prioridade>Prioridade</label>
-							<select name="prioridade" id="prioridade" required>
-								<option disabled>---</option>
-								<option value="3">Baixa</option>
-								<option value="2">Média</option>
-								<option value="1" selected>Alta</option>
-							</select>
-					</div><br>
-		
-			<div class="campo">
+				<div class="campo">
+					<label for=setor>Setor</label>
+						<input type="text" name="setor" id="setor" placeholder="Digite o seu setor" required>
+				</div>
+				<div class="campo select">
 						<label for=atribuicao>Atribuir para:</label>
-							<select name="atribuicao" id="atribuicao" required>
-								<option disabled>---</option>
-								<option value="1" selected>Administrador</option>
-								<option value="2">Técnico</option>
-							</select>
-					</div><br>
+						<select name="atribuicao" id="atribuicao" disabled>
+							<option>---</option>
+							<option value="1" selected>Administrador</option>
+						</select>
+				</div>
+		
 					
-						</fieldset>
+			</fieldset>
         	<fieldset>
 				<div class="campo">
             		<label for="descricao">Descrição do Problema</label><br>
             		<textarea rows="6" style="width: 32em" id="descricao" name="descricao" placeholder="Solicito alteração de senha"></textarea>
         		</div><br>
-			<div>
-				<button type="submit" name="enviar" value="enviar">Enviar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
+			
+			</fieldset>
+			<fieldset class="action">
+				<div>
+					<button type="" name="cancelar" value="cancelar" class="default" onclick="goBack()" style="margin-right: 10px;">Cancelar</button>
+
+					<button type="reset" name="limpar" value="limpar" class="default" style="margin-right: 10px;">Limpar</button>
+			
+					<button type="submit" name="enviar" value="enviar">Enviar</button>
+					
 				</div>
 			</fieldset>
 	</form>

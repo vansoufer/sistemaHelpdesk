@@ -5,18 +5,29 @@
 }
 
 span.foco-sucesso {
-	color: #00ff00;
+	color: #105710;
 }
-
+.success{
+	margin-top:20px;
+	font-size:12px;
+}
 span.foco-erro {
-	color: #ff0000;
+	font-weight: 600;
+	margin-top:20px;
+	font-size:16px;
+	color: #af1010;
+}
+.feedback-await{
+	margin-top:15px;
+	font-size: 12px;
 }
 .loader {
+	margin-top: 15px;
 	border: 10px solid #f3f3f3;
   	border-radius: 50%;
-  	border-top: 10px solid #3498db;
-  	width: 50px;
- 	height: 50px;
+  	border-top: 10px solid #134c6f;
+  	width: 30px;
+ 	height: 30px;
   	-webkit-animation: spin 2s linear infinite; /* Safari */
  	animation: spin 2s linear infinite;
 }

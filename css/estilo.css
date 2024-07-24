@@ -3,7 +3,6 @@
 body {
 	margin: 0;
 	padding: 0;
-	background: url(../imagens/bg-index.png)no-repeat;
 	background-position: center;
 	font-family: sans-serif;
 	-webkit-background-size: cover;
@@ -14,16 +13,45 @@ body {
 	width: 100vw;
   	height: 100vh;
 }
-
+.flex-column{
+	width: 100%;
+	display:flex;
+	height: 100vh;
+}
+.left{
+    justify-content: center;
+    flex-direction: column;
+    background: #134c6f;
+    display: flex;
+    width: 65%;
+    align-items: center;
+}
+.left .text-container{
+	color: white;
+    margin: 5px;
+    text-align: center;
+    padding: 20px;
+}
+.left .text-container h1{
+	font-size:40px;
+}
+.left .text-container p{
+	font-size:20px;
+}
+.left img{
+	width: 100px;
+    height: auto;
+    position: relative;
+   
+}
 .loginbox {
-	width: 320px;
-	height: 400px;
+	align-self: center;
+	text-align: center;
+    flex-direction: column;
+    display: flex;
+    width: 35%;
 	background: #fff;
-	color: #000;
-	top: 50%;
-	left: 50%;
-	position: absolute;
-	transform: translate(-50%, -50%);
+	color: #134c6f;
 	box-sizing: border-box;
 	padding: 70px 30px;
 }
@@ -32,9 +60,6 @@ body {
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
-	position: absolute;
-	top: -50px;
-	left: calc(50% - 50px);
 	border: none;
 }
 
@@ -42,7 +67,7 @@ h1 {
 	margin: 0;
 	padding: 0 0 20px;
 	text-align: center;
-	font-size: 22px;
+
 }
 
 .loginbox p {
@@ -69,24 +94,28 @@ h1 {
 .loginbox input[type="submit"] {
 	border: none;
 	outline: none;
-	margin-left: 50px;
-	width: 150px;
+	width: 200px;
 	height: 40px;
-	background: #228B22;
-	color: #000;
+	margin-top:20px;
+	background: #134c6f;
+	color: #fff;
 	font-size: 18px;
 	border-radius: 20px;
 }
 
 .loginbox input[type="submit"]:hover {
 	cursor: pointer;
-	background: #006400;
-	color: #000;
+	opacity:0.6;
+}
+
+.loginbox i{
+	font-size: 60px;
+	padding-bottom: 20px;
 }
 
 .loginbox a {
 	text-decoration: none;
 	font-size: 12px;
 	line-height: 20px;
-	color: #000;
+	color: #134c6f;
 }

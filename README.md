@@ -8,10 +8,9 @@
 - Vanessa Souto Ferreira
 
 ### Ferramentas utilizadas:
-- Linguagem de programação: PHP e Javascript.
-- Interfaces: HTML e CSS.
-- Editor: Notepad++.
-- Frameworks: Bootstrap e pure min.
+- XAMPP
+- Linguagem de programação: PHP.
+- Interfaces: HTML, CSS e Bootstrap.
 
 ### Funcionalidades:
 - Cadastro de usuários com níveis de acessos para: usuário comum, administrador e tecnicos.
@@ -20,6 +19,12 @@
 - Visualização de solicitações por stuatus.
 - Alteração de cadastros (apenas para administradores).
 - Realizar consultas e gerar relátorios.
+
+### Configurações para subir aplicação:
+- clonar repositório na pasta htdocs do xampp
+- criar base de dados 'arvdesk' e rodar script 'arvdesk.sql' no phpMyAdmin
+- verificar configurações do banco no arquivo conexao.php
+- start no apache e no mysql no xampp
 
 ### Telas:
 

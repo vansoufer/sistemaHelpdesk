@@ -12,8 +12,9 @@
 	<title>ARV-DESK</title>
 </head>
 <body>
-	<form class="form" method="post" action="buscachamados.php">
-		<h1>Consultar Chamado</h1>
+	<div class="cadastro-content">
+	<form class="form cadastros" method="post" action="buscachamados.php">
+		<h3>Consultar Chamado</h3>
 
 		<fieldset class="grupo">
 
@@ -55,30 +56,21 @@
 
 		</fieldset>
 
-		<fieldset>
-				<button type="submit" name="enviar" value="enviar">Consultar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
+		<fieldset style="margin-top:20px;">
+				
+				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+				<button type="submit" name="enviar" value="enviar" class="btn-primary">Consultar</button>
 				
 		</fieldset>	
 
 	</form>
+	</div>
+	
 
 </body>
 
-	<style type="text/css">
 
-		button[type=button] {
-			background-color: #6495ED;
-			color: white;
-			padding: 12px 20px;
-			border: none;
-			border-radius: 4px;
-			cursor: pointer;
-			margin-top: 10px;
-		}
-
-		button[type=button]:hover {
-			background-color: #1E90FF;
-		}
-	</style>
+	<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

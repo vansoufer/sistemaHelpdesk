@@ -30,7 +30,7 @@
 			<fieldset class="grupo">
 				<div class="campo">
 						<label for=status>Status</label>
-							<select name="status" id="status">
+							<select name="status" id="status" required>
 								<option value=''>---</option>
 								<option value="1">Pendente</option>
 								<option value="2">Em andamento</option>

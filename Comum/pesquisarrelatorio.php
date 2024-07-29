@@ -20,9 +20,9 @@
 </script>
 </head>
 <body>
-
-	<form class="form" method="post" action="">
-		<h1>Consultar Relatórios</h1>
+	<div class="cadastro-content">
+	<form class="form cadastros" method="post" action="">
+		<h3>Consultar Relatórios</h3>
 
 		<fieldset class="grupo">
 
@@ -44,23 +44,12 @@
 		
 
 	</form>
+	</div>
+
 
 </body>
 
-	<style type="text/css">
-
-		button[type=button] {
-			background-color: #6495ED;
-			color: white;
-			padding: 12px 20px;
-			border: none;
-			border-radius: 4px;
-			cursor: pointer;
-			margin-top: 10px;
-		}
-
-		button[type=button]:hover {
-			background-color: #1E90FF;
-		}
-	</style>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

@@ -8,7 +8,7 @@
 
 ob_start();	
 
-	$html = '<table border=0 width=100% height=60% style="margin:40px;">';
+	$html = '<table border=0 width=100% height=60% style="margin:40px 0;">';
 	$html .= '<thead>';
 	$html .= '<tr>';
 	$html .= '<td><b>Tipo</td>';

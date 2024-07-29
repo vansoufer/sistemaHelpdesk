@@ -16,10 +16,10 @@
 	<title>ARV-DESK</title>
 </head>
 <body>
+<div class="cadastro-content">
+<form class="form cadastros" method="post" action="cad-chamados-bd.php">
 
-	<form class="form" method="post" action="cad-chamados-bd.php">
-
-		<h1><font color="#072c45">Abrir Solicitação</font></h1>
+		<h3>Abrir Solicitação</h3>
 			<fieldset class="grupo">
 					<div class="campo">
 						<label for=tipo>Tipo Chamado</label>
@@ -104,11 +104,18 @@
             		<label for="descricao">Descrição do Problema</label>
             		<textarea rows="6" style="width: 32em" id="descricao" name="descricao"></textarea>
         		</div>
-			<div>
-				<button type="submit" name="enviar" value="enviar">Enviar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
-				</div>
+			
 			</fieldset>
+			<fieldset>
+				
+				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+				<button type="submit" name="enviar" value="enviar" class="btn-primary">Enviar</button>
+				</fieldset>
 	</form>
+</div>
+	
 </body>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

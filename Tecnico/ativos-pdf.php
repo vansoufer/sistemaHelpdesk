@@ -9,7 +9,7 @@
 	include ("../verificaAcesso.php");
 ob_start();	
 
-	$html = '<table border=0 width=100% height=60%>';
+	$html = '<table border=0 width=100% height=60% style="margin:40px 0;">';
 	$html .= '<thead>';
 	$html .= '<tr>';
 	$html .= '<td><b>Status</td>';
@@ -50,7 +50,7 @@ ob_start();
 						$html .= '<td>'.$row_user['nome'] . "</td>";	
 						$html .= '<td>'.$row_user['NumInventario'] . "</td>";
 						$html .= '<td>'.$tip . "</td>";
-						$html .= '<td>'date("d/m/Y", strtotime(.$row_user['dtaquisicao'] )). "</td>";
+						$html .= '<td>'.date("d/m/Y", strtotime($row_user['dtaquisicao'] )). "</td>";
 						$html .= '<td>'.$row_user['setor'] . "</td>";
 						$html .= '<td>'.$row_user['garantia'] . "</td>";
 						$html .= '<td>'.$row_user['idUsuario'] . "</td>";
@@ -75,7 +75,7 @@ ob_start();
 						$html .= '<td>'.$row_user['nome'] . "</td>";	
 						$html .= '<td>'.$row_user['NumInventario'] . "</td>";
 						$html .= '<td>'.$tip . "</td>";
-						$html .= '<td>'date("d/m/Y", strtotime(.$row_user['dtaquisicao'] )). "</td>";
+						$html .= '<td>'.date("d/m/Y", strtotime($row_user['dtaquisicao'] )). "</td>";
 						$html .= '<td>'.$row_user['setor'] . "</td>";
 						$html .= '<td>'.$row_user['garantia'] . "</td>";
 						$html .= '<td>'.$row_user['idUsuario'] . "</td>";
@@ -124,10 +124,10 @@ use Dompdf\Dompdf;
 		
 		$dompdf = new DOMPDF();
 		
-		$dompdf->load_html('
+		$dompdf->loadHtml('
 			<center><img src="../imagens/computer02.png" style="padding-top:18px;height:70px;"> 
-			<br><b>ARV Desk </center><br>
-			<h3 style="text_align: center;"> RELATÓRIO DOS ATIVOS </h3><br>
+			<br><b>ARV-DESK </center><br>
+			<h3 style="text_align: center;"> Relatório de ativos </h3><br>
 			
 			
 			'. $html .'

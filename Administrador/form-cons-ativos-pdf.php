@@ -19,7 +19,7 @@
 
 				<div class="campo">
 					<label for="status">Status</label>
-						<select name="status" id="status">
+						<select name="status" id="status" required>
 							<option value=""></option>
 							<option value="1">Habilitado</option>
 							<option value="0">Desabilitado</option>

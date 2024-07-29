@@ -12,14 +12,15 @@
 	<title>ARV-DESK</title>
 </head>
 <body>
-	<form class="form" method="post" action="usuarios-pdf.php">
-		<h1>Consultar Usuário</h1>
+	<div class="cadastro-content">
+	<form class="form cadastros" method="post" action="usuarios-pdf.php">
+		<h3>Consultar Usuário</h3>
 
 		<fieldset class="grupo">
 
 				<div class="campo">
 					<label for="status">Status</label>
-						<select name="status" id="status">
+						<select name="status" id="status" required>
 							<option value=""></option>
 							<option value="habilitado">Habilitado</option>
 							<option value="desabilitado">Desabilitado</option>
@@ -49,12 +50,20 @@
 
 		</fieldset>
 
-		<fieldset>
-				<button type="submit" name="enviar" value="enviar">Gerar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
+		<fieldset style="margin-top:20px;">
+				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+				<button type="submit" name="enviar" value="enviar" class="btn-primary">Gerar</button>
+				
 		</fieldset>	
 
 	</form>
+	</div>
+	
 
 </body>
+<footer class="footer">
+	<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+</footer>
+
+
 </html>

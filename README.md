@@ -25,33 +25,18 @@
 - criar base de dados 'arvdesk' e rodar script 'arvdesk.sql' no phpMyAdmin
 - verificar configurações do banco no arquivo conexao.php
 - start no apache e no mysql no xampp
+- para gerar pdf é necessário remover ';' da extensao gd do arquivo php.ini 
 
-### Telas:
+### Atualizações:
+- Criptografia nas senhas
+- Correção relatórios
+- Novo layout
+- Pie chart do google charts na home
 
-### - Pagína de login:
+### Telas (LAYOUT ATUALIZADO):
 
-![index](https://github.com/vansoufer/sistemaHelpdesk/blob/master/index.png)
 
-### - Home:
+### - Login
+![index](https://github.com/vansoufer/sistemaHelpdesk/blob/master/new-index.png)
 
-![home](https://github.com/vansoufer/sistemaHelpdesk/blob/master/home.png)
 
-### - Abrir solicitação:
-
-![solicitar](https://github.com/vansoufer/sistemaHelpdesk/blob/master/solicitar.png)
-
-### - Visualizar solicitações:
-
-![visualizar](https://github.com/vansoufer/sistemaHelpdesk/blob/master/visualizar.png)
-
-### - Consultar:
-
-![consulta](https://github.com/vansoufer/sistemaHelpdesk/blob/master/consulta.png)
-
-### - Exibindo consultas:
-
-![exibir](https://github.com/vansoufer/sistemaHelpdesk/blob/master/consultas.png)
-
-### - Editar:
-
-![editar](https://github.com/vansoufer/sistemaHelpdesk/blob/master/editar.png)

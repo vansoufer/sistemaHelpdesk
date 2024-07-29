@@ -41,4 +41,7 @@ mysqli_close($conexao);
 	<center><a href="Atender.php">Clique aqui para nova alteração</a></center>
 </form>
 </body>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

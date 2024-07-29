@@ -8,8 +8,11 @@ session_start();
 <html>
  <head>
   <title>Arv-Desk</title>
-  <meta charset="utf-8">
-   <link rel="stylesheet" type="text/css" href="../css/formstyle.css">    
+  <meta charset="utf-8">   
+   <link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	
   
  </head>
   
@@ -29,15 +32,18 @@ $sql = mysqli_query($conexao,"UPDATE  chamados SET dtConcluir = '$dtConcluir', n
 mysqli_close($conexao);
 ?>
 <fieldset class="grupo">
-<form>
+<form style="margin-top:150px;">
 	<div class='grupo' align='center'>
-	<img src='../imagens/sucesso.png' alt='some text' width=80 height=80 align='center'><br><br>
+	<i class='bi bi-check-circle' style='color:green;font-size:50px'></i><br>
 	</div>
 	<div>
-	<font color=#333><center><h1>Alteração realizada com sucesso !</h1></center>
+	<center><h1>Alteração realizada com sucesso !</h1></center>
 	</div>
-	<center><a href="home.php">Clique aqui para voltar a pagína inicial.</a></center>
+	<center><a href="home.php" color="#134c6f">Clique aqui para voltar a pagína inicial.</a></center>
 </form>
 </fieldset>
 </body>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

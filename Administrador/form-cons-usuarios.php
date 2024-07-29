@@ -9,11 +9,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	
 	<title>ARV-DESK</title>
 </head>
 <body>
-	<form class="form" method="post" action="buscausers.php">
-		<h1>Consultar Usuário</h1>
+	<div class="cadastro-content">
+	<form class="form cadastros" method="post" action="buscausers.php">
+		<h3>Consultar Usuário</h3>
 
 		<fieldset class="grupo">
 
@@ -50,12 +53,17 @@
 
 		</fieldset>
 
-		<fieldset>
-				<button type="submit" name="enviar" value="enviar">Consultar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
+		<fieldset style="margin-top:20px;">
+				
+				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+				<button type="submit" name="enviar" value="enviar" class="btn-primary">Consultar</button>
 		</fieldset>	
 
 	</form>
+	</div>
 
 </body>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

@@ -25,11 +25,11 @@ include ("../verificaAcesso.php");
 
 
 
-<form action="cadatender.php" method="post">
+<div class="cadastro-content">
+<form action="cadatender.php" method="post" class="form cadastros">
 <fieldset class="grupo">
 <div class="campo" align="center"> 
-
-<font color="#072c45"><h2> Atender Chamado:</h2></font>
+<h3> Atender Chamado:</h3>
 </fieldset>
 
 <fieldset>
@@ -78,8 +78,9 @@ include ("../verificaAcesso.php");
 		
 		<fieldset class="grupo">
 		
-			<button type="submit" name="enviar" value="enviar">Enviar</button>
-			<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
+			
+			<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+			<button type="submit" name="enviar" value="enviar" class="btn-primary">Enviar</button>
 		
 		</fieldset>
 			
@@ -88,6 +89,8 @@ include ("../verificaAcesso.php");
 
 </form>
         
+</div>
+
 
  
 </body>

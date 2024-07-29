@@ -3,27 +3,22 @@
   <?php 
  		include ("../verificaAcesso.php");
 		include_once ("menu.html");
-		include ("../verificaAcesso.php");
+		include ("../conexao.php");
 	 ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="css/formstyle.css">
+	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>ARV-DESK</title>
 	</head>
 	 <body>
+	 <div>
 	<form class="form" method="post" action="">
-		<h1>Editar Usuário</h1>
-		<div>
+		
  
- 
-
-
-<?php
-//conexao com o banco
-	include ("../conexao.php");
-	
-?>
 
 <?php
 	$id = filter_input(INPUT_POST,'id', FILTER_SANITIZE_NUMBER_INT);
@@ -50,22 +45,20 @@
 
 	$resultado_usuario = mysqli_query($conexao, $chamada);
 	
-	echo "<form>
-	<div class='grupo' align='center'>
-	<img src='../imagens/sucesso.png' alt='some text' width=80 height=80 align='center'><br><br>
+	echo "
+	<div class='grupo' align='center' style='margin-top:150px;'>
+	<i class='bi bi-check-circle' style='color:green;font-size:50px'></i><br><br>
 	</div>
 	<div> 
-	<font color=#333><center><h1>Ativo alterado com sucesso !</h1></center>
+	<center><h1>Solicitação alterada com sucesso !</h1></center>
+	<a href='form-cons-chamados.php' style='color:#134c6f; display:flex; justify-content: center;'>Clique aqui para voltar a pagina anterior</a>
 	</div>
-	</form>
 	";
 	mysqli_close($conexao);
 ?>
 
-		<fieldset>
-		<center><button><a href="form-cons-chamados.php">Voltar</button></center>
-		</fieldset>
-		</form>
+	
+</form>
 </div>
 </body>
 </html>

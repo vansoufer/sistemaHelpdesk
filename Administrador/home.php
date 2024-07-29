@@ -8,9 +8,19 @@ include ("../verificaAcesso.php")
 ?>
 <?php
 
-$consulta = "SELECT * FROM chamados WHERE atribuicao = 1 AND prioridade = 1 ";
+$consulta = "SELECT * FROM chamados WHERE atribuicao = 1 AND status = 1 ORDER BY prioridade ";
 $con = $conexao->query($consulta);
+$consultaAndamento = "SELECT COUNT(*) AS total FROM chamados WHERE status = 2 ";
+$conAndamento = $conexao->query($consultaAndamento);
+$consultaPendente = "SELECT COUNT(*) AS total FROM chamados WHERE status = 1  ";
+$conPendentes = $conexao->query($consultaPendente);
+$consultaEncerrados = "SELECT COUNT(*) AS total FROM chamados WHERE status = 0  ";
+$conEncerrados = $conexao->query($consultaEncerrados);
+$totalPendente = mysqli_fetch_assoc($conPendentes);
+					$totalAndamento = mysqli_fetch_assoc($conAndamento);
+					$totalEncerradas = mysqli_fetch_assoc($conEncerrados);
 ?>
+
 <html>
 	<head>
 
@@ -21,11 +31,12 @@ $con = $conexao->query($consulta);
 		<meta name="description" content="A layout example that shows off a responsive pricing table.">
 		
 
-		<link rel="stylesheet" href="/css/pure/pure-min.css">
-		<link rel="stylesheet" href="/css/pure/grids-responsive-min.css">
-		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 		<title>ARV-DESK</title>	
 		<link rel="stylesheet" href="../css/formstyle.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 		<style>
 		h1{
 			font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
@@ -66,126 +77,193 @@ $con = $conexao->query($consulta);
 		.div1{
 			margin-left:5%;
 		}
-		.pure-table{
-			
-			width:100%;
-		}
-		.content{
-			margin-right:5%;
-			align: center;
-		}
-		.a{
-			color: #fff;
-		}
-		.td{
-			color: #363636;
-			text-align: center;
-		}
-		.vc {
-			text-align: center;
-		}
-		</style>
-
-	<script type="text/javascript">
-		function Nova()
-		{
-			location.href="Atender.php"
-		}
-	</script>
-	</head>
 	
-      
+		
+		</style>
+		   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+			var totalAndamento = <?php echo $totalAndamento['total'] ?>;
+			var pendentes = <?php echo $totalPendente['total']?>;
+			var encerradas = <?php echo $totalEncerradas['total']?>;
+			function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+					['Status', 'Total'],
+					['Pendentes', pendentes],
+					['Em andamento', encerradas],
+					['Encerradas', totalAndamento]
+				]);
+				
+				var options = {
+					title:'Solicitações',
+					colors:['#FF0000','#D9B310', '#008000']
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+				chart.draw(data, options);
+			}
+			function Nova()
+			{
+				location.href="Atender.php"
+			}
+
+		</script>
+	</head>   
       
 	<body>
 	
 	
-	<form class="form" method="post" action="#">
+		<form class="form" method="post" action="#">
 
 		
-	<fieldset class="grupo">
-			<div class="div" align="center">
-		<img src="../imagens/computer02.png" alt="some text" width=90 height=80><br>
-		<font color="#072c45"><b align="center">Bem vindo(a), <?php echo $_SESSION['adm'];?></b><br>
-		<?php 
-		date_default_timezone_set("America/Sao_Paulo");
-		echo date('l, ');
-		echo date('d/m/Y H:i:s a');?>
-
-		</font><br><br><br><br>
-		</div>
-			<h1>Solicitações com alta prioridade:</h1><br>
-
-			<div class="vc">
-				<a href="visualizar-chamados.php"><img src="../imagens/eye.png" alt="some text" width=25 height=20> Visualizar Chamados</a>
-			</div>
-	
-
-			<br><br>
-
-			<div class="content" >
-				<table class="pure-table "  border="0px"  >
-					
-						<tr>
-							<th scope="col"><font color="#072c45">Código: </font> </th>
-							<th scope="col"><font color="#072c45">Tipo: </font></th>
-							<th scope="col"><font color="#072c45">Data de Abertura:</font></th>
-							<th scope="col"><font color="#072c45">Prazo:</font></th>
-							<th scope="col"><font color="#072c45">Status:</font></th>
-							<th scope="col"><font color="#072c45">Prioridade:</font></th>
-							
-						</tr>
-					
-					<?php while($dado = $con->fetch_array()){ ?>
-					<?php
-						$dt_atual		= date("d/m/Y"); // data atual
-						 // converte para timestamp Unix
-						 $time_dt_atual = strtotime($dt_atual);
- 
-						$dt_expira	= date ("d/m/Y", strtotime($dado["dtConcluir"])); // data de expiração do anúncio
-						 // converte para timestamp Unix
-	
+			<fieldset class="grupo">
+				
+				<div class="welcome" >
+					<div>
+					<img src="../imagens/computer02.png" alt="some text" width=90 height=80><br>
+					<p>Bem vindo(a), <?php echo $_SESSION['adm'];?></p>
+					<div>
+					<?php 
+						setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+						date_default_timezone_set('America/Sao_Paulo');
+						echo '<span>';
+						echo date('l');
+						echo '</span><span>';
+						echo date('d/m/Y H:i:s a');
+						echo '</span>';
 					?>
-						<tr class="td">
-							<td><?php echo $dado["id"]; ?></td>
-							<td><?php if($dado["tipo"] == 1) echo "Incidente"; else echo "Requisição" ?></td>
-							<td><?php echo date ("d/m/Y", strtotime($dado["dtAbertura"])); ?></td>
-							<td><?php 
-							if ($dt_atual > $dt_expira){ 
-								echo "<div class='p-3 mb-2 bg-danger text-dark'><br> EXPIRADO!<br> desde: $dt_expira </div>";
-								$dado["prioridade"] = 1;
-							} 
-							elseif ($dt_atual == $dt_expira){
-								echo "<div class='p-2 mb-2 bg-warning text-dark'><br> O prazo acaba hoje! </div>";
-								$dado["prioridade"] = 1;
-							} 
-							elseif ($dado["dtConcluir"] == NULL){ 
-								echo "Não definido";
-							}else{
-								echo $dt_expira;
-							}								?></td>
-							
-							<td><?php echo "Pendente";?></td>
-							<td><?php if($dado["prioridade"] == 1) echo "<img src='../imagens/energia.png' alt='some text' width=20 height=20> Alta !"; elseif ($dado["prioridade"] == 2) echo "<img src='../imagens/media.png' alt='some text' width=10 height=10> Média"; else echo "<img src='../imagens/coffee.png' alt='some text' width=20 height=20> Baixa" ;?></td>
-							<td><a href="vermais.php?id=<?= $dado['id']; ?>"><img src="../imagens/vermais.png"></a></td>
-							
-						</tr>
-					<?php } ?>
-				</table>		
-			</div>
-			<br><br><br><br>
+					</div>
+					</div>
+					
+					
+				</div>
 			
-			<div align="center">
-				<h4><font color="#072c45">Explorar:</h4><br>
-				<a href="form-cons-chamados.php"><img src="../imagens/search.png" alt="some text" width=20 height=20> Consultas</a> |
-				<a href="pesquisarrelatorio.php"><img src="../imagens/lapis1.png" alt="some text" width=20 height=20> Relatorios</a> |
-				<a href="form-cad-chamados.php"><img src="../imagens/mais.png" alt="some text" width=20 height=20> Abrir solicitação</a>
+			<div class="content container-table" >
 				
+				<div class="flex">
+				<div class="open-list">
+				<h1>Chamados abertos</h1>
+				<table class="table">
+					
+					<tr>
+
+						<th scope="col">Código</th>
+						<th scope="col">Tipo</th>
+						<th scope="col">Data de Abertura</th>
+						<th scope="col">Prazo</th>
+						<th scope="col">Status</th>
+						<th scope="col">Prioridade</th>
+						<th scope="col">Ver mais</th>
+						
+					</tr>
 				
+				<?php while($dado = $con->fetch_array()){ ?>
+				<?php
+					$dt_atual		= date("d/m/Y"); // data atual
+					 // converte para timestamp Unix
+					 $time_dt_atual = strtotime($dt_atual);
+
+					$dt_expira	= date ("d/m/Y", strtotime($dado["dtConcluir"])); // data de expiração do anúncio
+					 // converte para timestamp Unix
+
+				?>
+					<?php 
+						if (($dt_atual > $dt_expira ) || ($dt_atual == $dt_expira ) || $dado["prioridade"] == 1){
+							echo "<tr class='table-danger'>";
+							echo "<td>";
+							echo $dado["id"];
+							echo "</td>";
+							echo "<td>";
+							if($dado["tipo"] == 1) echo "Incidente"; else echo "Requisição";
+							echo "</td>";
+							echo "<td>";
+							echo date ("d/m/Y", strtotime($dado["dtAbertura"]));
+							echo "</td>";
+							echo "<td>";
+							if ($dado["dtConcluir"] == NULL) echo "Não definido"; elseif(($dt_atual > $dt_expira) || ($dt_atual == $dt_expira)) echo "$dt_expira <i class='fa fa-bomb'>"; else echo $dt_expira ;
+							echo"</td>";
+							echo "<td> Pendente </td>";
+							echo "</td>";
+							echo "<td> Alta </td>";
+							echo "<td> <a href='vermais.php?id=";
+							echo $dado['id'];
+							echo "'><i class='bi bi-eye-fill'></a></td>";
+							echo "</tr>";
+						} 
+						elseif (($dado["prioridade"] == 2 && ($dt_expira > $dt_atual || $dado["dtConcluir"] == NULL))){
+							
+							echo "<tr class='table-warning'>";
+							echo "<td>";
+							echo $dado["id"];
+							echo "</td>";
+							echo "<td>";
+							if($dado["tipo"] == 1) echo "Incidente"; else echo "Requisição";
+							echo "</td>";
+							echo "<td>";
+							echo date ("d/m/Y", strtotime($dado["dtAbertura"]));
+							echo "</td>";
+							echo "<td>";
+							if ($dado["dtConcluir"] == NULL) echo "Não definido"; else echo $dt_expira;
+							echo "</td>";
+							echo "<td> Pendente </td>";
+							echo "</td>";
+							echo "<td> Média </td>";
+							echo "<td> <a href='vermais.php?id=";
+							echo $dado['id'];
+							echo "'><i class='bi bi-eye-fill'></a></td>";
+							echo "</tr>";
+						}else{
+							
+							echo "<tr class='table-light'>";
+							echo "<td>";
+							echo $dado["id"];
+							echo "</td>";
+							echo "<td>";
+							if($dado["tipo"] == 1) echo "Incidente"; else echo "Requisição";
+							echo "</td>";
+							echo "<td>";
+							echo date ("d/m/Y", strtotime($dado["dtAbertura"]));
+							echo "</td>";
+							echo "<td>";
+							if($dado["dtConcluir"] == NULL){
+							 echo "Não definido";
+							}else{
+							 echo $dt_expira;
+							}
+							echo "</td>";
+							echo "<td> Pendente </td>";
+							echo "</td>";
+							echo "<td>";
+							if ($dado["prioridade"] == 2) echo " Média "; else echo " Baixa  " ;
+							echo "</td>";
+							echo "<td> <a href='vermais.php?id=";
+							echo $dado['id'];
+							echo "'><i class='bi bi-eye-fill'></i></a></td>";
+							echo "</tr>";
+							
+						}								
+					?>
+						
+				
+				<?php } ?>
+			</table>
+				</div>
+				<div id="piechart" style="width:40%"></div>
+				</div>
+						
 			</div>
-		</fieldset>
+			
+			</fieldset>
 
 		</form>
-
+		<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 	</body>
 
 	

@@ -2,27 +2,24 @@
 <html>
  <head>
   <?php 
-		include_once ("menu.html");
+	include ("../conexao.php");
+	include_once ("menu.html");
+	include ("../verificaAcesso.php");
 	 ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="css/formstyle.css">
+	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>ARV-DESK</title>
-	 <body>
-	<form class="form" method="post" action="alteraruser.php">
-		<h1>Editar Usuário</h1>
- 
- <body>
+
+</head>
+<body>
 
  <?php
-	$host = "localhost";
-    $user = "root";
-    $pass = "";
-    $banco = "arvdesk";
-    //Criar a conexao
-    $conexao = mysqli_connect($host, $user, $pass)or die (mysqli_error());
-    mysqli_select_db($conexao, $banco) or die (mysqli_error());
+	
+
 	
 	$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 	
@@ -30,16 +27,15 @@
 	$resultado_usuario = mysqli_query($conexao, $chamada);
 	$row = mysqli_fetch_assoc($resultado_usuario);
 
+	function selected( $value, $selected ){
+		return $value==$selected ? ' selected="selected"' : '';
+	}
 	
  ?>
   
-
- <?php
-		function selected( $value, $selected ){
-		return $value==$selected ? ' selected="selected"' : '';
-		}?>
-
-
+<div class="cadastro-content">
+	<form class="form cadastros" method="post" action="alteraruser.php">
+		<h3>Editar Usuário</h3>
     <fieldset class="grupo">
 		<div class="campo">
 					<input type="hidden" name='id' value="<?php echo $row['id']; ?>">
@@ -135,17 +131,21 @@
 
 			</fieldset>
 
-				<div class="campo">
+			<fieldset>
+			<div class="campo">
             		<label for="mensagem">Comentários</label>
             		<textarea rows="6" style="width: 32em" id="mensagem" name="mensagem" placeholder="<?php echo $row['descricao']; ?>"></textarea>
         		</div>
+			</fieldset>
+				
 
         	<fieldset>
-        		<button type="submit" name="enviar" value="enviar">Alterar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
+        		
+				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+				<button type="submit" name="enviar" value="enviar" class="btn-primary">Alterar</button>
 			</fieldset>
-</form>
-
+	</form>
+</div>
  
 </body>
 </html>

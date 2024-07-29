@@ -9,7 +9,7 @@
 	
 ob_start();	
 
-	$html = '<table border=0 width=100% height=60%>';
+	$html = '<table border=0 width=100% height=60% style="margin:40px;">';
 	$html .= '<thead>';
 	$html .= '<tr>';
 	$html .= '<td><b>Status</td>';
@@ -124,10 +124,10 @@ use Dompdf\Dompdf;
 		
 		$dompdf = new DOMPDF();
 		
-		$dompdf->load_html('
+		$dompdf->loadHtml('
 			<center><img src="../imagens/computer02.png" style="padding-top:18px;height:70px;"> 
-			<br><b>ARV Desk </center><br>
-			<h3 style="text_align: center;"> RELATÓRIO DOS ATIVOS </h3><br>
+			<br><b>ARV-DESK </center><br>
+			<h3 style="text_align: center;"> Relatório de ativos </h3><br>
 			
 			
 			'. $html .'

@@ -5,6 +5,8 @@
 
 body {
 	background-color: #fff;
+    min-height: 100%;
+    margin-bottom: 70px;
 }
 
 form {
@@ -12,14 +14,72 @@ form {
     padding: 0 20px;
 	margin-top: 80px;
 }
+.cadastro-content{
+    margin: 40px 0;
+    justify-content: center;
+    display: flex;
+}
+form.cadastros{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    padding:40px;
+    width: 50%;
+    border: 1px solid rgb(161 155 155);
+    background-color: #e1e1e180;
+    border-radius:8px;
+}
+form.cadastros h3{
+    color:#134c6f;
+    margin-bottom: 20px;
+}
+form.cadastro .campo input, form.cadastro .campo select{
+    padding:10px;
+}
+.consulta-action{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 
 fieldset {
     border: none;
 }
 
+fieldset.grupo div.welcome{
+    margin: 20px 0;
+    justify-content: center;
+    display: flex;
+}
+fieldset.grupo div.welcome div{
+    flex-direction: column;
+    text-align: center;
+}
+
 body, input, select, textarea, button {
     font-family: sans-serif;
     font-size: 1em;
+}
+.btn-default{
+    height: 50px;
+    min-width: 150px;
+    text-align: center;
+    padding: 12px 20px;
+    border:1px solid #134c6f;
+    color:#134c6f;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.btn-primary{
+    height: 50px;
+    min-width: 150px;
+    text-align: center;
+    padding: 12px 20px;
+    background-color: #134c6f;
+    border:1px solid #134c6f;
+    color:#fff;
+    border-radius: 8px;
 }
 
 input, select, option {
@@ -74,46 +134,102 @@ fieldset.grupo .campo {
 select {
     cursor: pointer;
 }
-
-button[type=submit] {
-background-color: #4CAF50;
-color: white;
-padding: 12px 20px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-
+.content-chamados{
+    margin-left: 0;
+    width: 100%;
+    padding:0 30px;
+}
+.content-chamados table>:not(caption)>*>*{
+    padding:20px;
+}
+table tr .fa.fa-bomb{
+    color:red;
+}
+.bi.bi-eye-fill{
+    font-size: 20px;
+    color:#134c6f;
+}
+.bi.bi-eye-fill:hover{
+    opacity:0.8;
+}
+.content.container-table{
+    padding:5px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    border: 1px solid #a8acb1;
+}
+.content.container-table .flex{
+    display: flex;
+    width: 100%;
+ }
+ .content.container-table h1{
+    font-family: sans-serif;
+    font-size: 20px;
+    margin:0;
+    padding:20px 20px 0;
+ }
+ .content.container-table .open-list{
+  width:60%;
+}
+.content.container-table table{
+    font-family: sans-serif;
+    margin:20px;
+}
+.content.container-table .table a{
+    font-size: 22px;
+    color: #554f4f;
+}
+.content.container-table .table .fa.fa-bomb {
+    font-size: 20px;
+    color: #cb2434;
+}
+.content.container-table .table .fa.fa-bomb {
+    font-size: 20px;
+    color: #cb2434;
+}
+.content.container-table .table .bi.bi-circle-half {
+    font-size: 20px;
+    color: #dba810;
+}
+.content.container-table .table .bi.bi-cup-hot-fill {
+    font-size: 20px;
+    color: #69698d;
+}
+.content.container-table .table a:hover{
+    opacity: 0.8;
+}
+.content.container-table .table td, .content.container-table .table th{
+    padding: 20px !important;
+}
+.footer{
+    bottom:0;
+    position: fixed;
+    height: 70px;
+    background-color: #134c6f;
+    color:#fff;
+    width: 100%;
+    text-align: center;
+    padding: 25px;
 }
 
-button[type=submit]:hover {
-background-color: #008000;
+ul.nav{
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12);
 }
-
-button[type=reset] {
-background-color: #FF6347;
-color: white;
-padding: 12px 20px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-
+ul.nav a{
+    color: #134c6f;
+    cursor:pointer;
 }
-
-button[type=reset]:hover {
-background-color: #FF0000;
+ul.nav a:hover{
+    background-color: #134c6f21 !important;
+    color: #134c6f !important;
 }
-
-.campo input [type=button] {
-background-color: #4CAF50;
-color: white;
-padding: 12px 20px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-
+ul.nav a.active{
+    box-shadow: 0px 1px 0px 0px;
+    background-color: #134c6f21 !important;
+    height: 100%;
+    font-weight: 600;
+    color: #134c6f !important;
+    border: 0;
 }
-
-.campo input [type=button]:hover {
-background-color: #008000;
-}
-

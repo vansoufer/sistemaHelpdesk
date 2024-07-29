@@ -1,7 +1,6 @@
 <?php
-
-include("../conexao.php");
-include ("../verificaAcesso.php");
+require_once ("visualizar-chamados.php");
+include("../conexao.php");;
 
 ?>
 <?php
@@ -70,6 +69,19 @@ $con = $conexao->query($consulta);
 			text-align: center;
 		}
 		</style>
+		<script>
+			function activeNav (){
+					document.querySelectorAll(".nav-link").forEach((ele) =>
+						ele.classList.remove('active')
+					);
+
+					var activeElement = document.getElementById('andamento');
+					activeElement.classList.add('active');
+					
+			}
+		
+			activeNav();
+		</script>
 	
 	</head>
 	
@@ -81,19 +93,21 @@ $con = $conexao->query($consulta);
 					
 
 
-			<div class="content">
-				<table class="pure-table pure-table-horizontal" border="0px" >
+			<div class="content-chamados">
+			<table class="table">
 					
-						<tr>
-							<th scope="col"><font color="#072c45">Código:  </font></th>
-							<th scope="col"><font color="#072c45">Tipo: </font></th>
-							<th scope="col"><font color="#072c45">Data de Abertura:</font></th>
-							<th scope="col"><font color="#072c45">Prazo:</font></th>
-							<th scope="col"><font color="#072c45">Status:</font></th>
-							<th scope="col"><font color="#072c45">Prioridade:</font></th>
-							
-						</tr>
-						</tr>
+					<tr>
+
+						<th scope="col">Código</th>
+						<th scope="col">Tipo</th>
+						<th scope="col">Data de Abertura</th>
+						<th scope="col">Prazo</th>
+						<th scope="col">Status</th>
+						<th scope="col">Prioridade</th>
+						<th scope="col">Ver mais</th>
+						
+					</tr>
+					
 					<?php while($dado = $con->fetch_array()){ ?>
 					<?php
 						$dt_atual		= date("d/m/Y"); // data atual
@@ -104,36 +118,90 @@ $con = $conexao->query($consulta);
 						 // converte para timestamp Unix
 	
 					?>
-						<tr class="td">
-							<td><?php echo $dado["id"]; ?></td>
-							<td><?php if($dado["tipo"] == 1) echo "Incidente"; else echo "Requisição"; ?></td>
-							<td><?php echo date ("d/m/Y", strtotime($dado["dtAbertura"])); ?></td>
-							<td><?php 
-							if ($dt_atual > $dt_expira){ 
-								echo "<div class='p-3 mb-2 bg-danger text-dark'><br> EXPIRADO! desde: $dt_expira </div>";
-								$dado["prioridade"] = 1;
-							} 
-							elseif ($dt_atual == $dt_expira){
-								echo "<div class='p-2 mb-2 bg-warning text-dark'><br> O prazo acaba hoje! </div>";
-								$dado["prioridade"] = 1;
-							} 
-							elseif ($dado["dtConcluir"] == NULL){ 
-								echo "Não definido";
-							} 
-							else { 
-								echo $dt_expira;
-							} ?></td>
-							<td><?php echo "Em andamento";?></td>
-							<td><?php if($dado["prioridade"] == 1) echo "<img src='../imagens/energia.png' alt='some text' width=20 height=20> Alta !"; elseif ($dado["prioridade"] == 2) echo "<img src='../imagens/media.png' alt='some text' width=10 height=10> Média"; else echo "<img src='../imagens/coffee.png' alt='some text' width=20 height=20> Baixa"; ?></td>
-							<td><a href="vermais.php?id=<?= $dado['id']; ?>"><img src="../imagens/vermais.png"></a></td>
+						<?php 
+						if ((($dt_atual > $dt_expira ) || ($dt_atual == $dt_expira ) || $dado["prioridade"] == 1) && $dado["status"] !=0){
+							echo "<tr class='table-danger'>";
+							echo "<td>";
+							echo $dado["id"];
+							echo "</td>";
+							echo "<td>";
+							if($dado["tipo"] == 1) echo "Incidente"; else echo "Requisição";
+							echo "</td>";
+							echo "<td>";
+							echo date ("d/m/Y", strtotime($dado["dtAbertura"]));
+							echo "</td>";
+							echo "<td>";
+							if ($dado["dtConcluir"] == NULL) echo "Não definido"; elseif(($dt_atual > $dt_expira) || ($dt_atual == $dt_expira)) echo "$dt_expira <i class='fa fa-bomb'>"; else echo $dt_expira ;
+							echo"</td>";
+							echo "<td>";
+							if($dado['status'] == 1) echo 'Pendente </td>'; else echo 'Em andamento </td>';
+							echo "<td> Alta </td>";
+							echo "<td> <a href='vermais.php?id=";
+							echo $dado['id'];
+							echo "'><i class='bi bi-eye-fill'></a></td>";
+							echo "</tr>";
+						} 
+						elseif (($dado["prioridade"] == 2 && ($dt_expira > $dt_atual || $dado["dtConcluir"] == NULL) ) && $dado['status'] !=0){
 							
+							echo "<tr class='table-warning'>";
+							echo "<td>";
+							echo $dado["id"];
+							echo "</td>";
+							echo "<td>";
+							if($dado["tipo"] == 1) echo "Incidente"; else echo "Requisição";
+							echo "</td>";
+							echo "<td>";
+							echo date ("d/m/Y", strtotime($dado["dtAbertura"]));
+							echo "</td>";
+							echo "<td>";
+							if ($dado["dtConcluir"] == NULL) echo "Não definido"; else echo $dt_expira;
+							echo "</td>";
+							if($dado['status'] == 1) echo '<td> Pendente </td>'; else echo '<td> Em andamento </td>';
+							echo "</td>";
+							echo "<td> Média </td>";
+							echo "<td> <a href='vermais.php?id=";
+							echo $dado['id'];
+							echo "'><i class='bi bi-eye-fill'></a></td>";
+							echo "</tr>";
+						}else{
 							
-						</tr>
-					<?php } ?>
+							echo "<tr class='table-light'>";
+							echo "<td>";
+							echo $dado["id"];
+							echo "</td>";
+							echo "<td>";
+							if($dado["tipo"] == 1) echo "Incidente"; else echo "Requisição";
+							echo "</td>";
+							echo "<td>";
+							echo date ("d/m/Y", strtotime($dado["dtAbertura"]));
+							echo "</td>";
+							echo "<td>";
+							if($dado["dtConcluir"] == NULL){
+							 echo "Não definido";
+							}else{
+							 echo $dt_expira;
+							}
+							echo "</td>";
+							echo "<td>";
+							if($dado['status'] == 1) echo 'Pendente </td>'; elseif($dado['status'] == 2) echo 'Em andamento </td>'; else echo "Encerrada </td>";
+							echo "</td>";
+							echo "<td>";
+							if ($dado["prioridade"] == 2) echo " Média "; elseif($dado["prioridade"] == 1) echo "Alta"; else echo " Baixa  " ;
+							echo "</td>";
+							echo "<td> <a href='vermais.php?id=";
+							echo $dado['id'];
+							echo "'><i class='bi bi-eye-fill'></i></a></td>";
+							echo "</tr>";
+							
+						}								
+					} ?>
 				</table>		
 			</div>
 		</fieldset>
 		</form>
-		
+	
 	</body>
+	<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

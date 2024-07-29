@@ -8,6 +8,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>ARV-DESK</title>
 	
@@ -20,9 +22,9 @@
 </script>
 </head>
 <body>
-
-	<form class="form" method="post" action="">
-		<h1>Consultar Relatórios</h1>
+<div class="cadastro-content">
+<form class="form cadastros" method="post" action="">
+		<h3>Consultar Relatórios</h3>
 
 		<fieldset class="grupo">
 
@@ -44,6 +46,8 @@
 		
 
 	</form>
+</div>
+	
 
 </body>
 
@@ -63,4 +67,7 @@
 			background-color: #1E90FF;
 		}
 	</style>
+	<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

@@ -2,11 +2,15 @@
 <html>
  <head>
   <?php 
+		include ("../conexao.php");
 		include_once ("menu.html");
+		include ("../verificaAcesso.php");
 	 ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="css/formstyle.css">
+	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>ARV-DESK</title>
 	 
@@ -15,13 +19,7 @@
  
 
  <?php
-	$host = "localhost";
-    $user = "root";
-    $pass = "";
-    $banco = "arvdesk";
-    //Criar a conexao
-    $conexao = mysqli_connect($host, $user, $pass)or die (mysqli_error());
-    mysqli_select_db($conexao, $banco) or die (mysqli_error());
+	
 	
 	$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 	
@@ -31,16 +29,12 @@
 
 	
  ?>
-  
-<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="css/formstyle.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<title>ARV-DESK</title>
+
 </head>
 <body>
-<form class="form" method="post" action="alterarativos.php">
-		<h1>Editar Ativos</h1>
+	<div class="cadastro-content">
+	<form class="form cadastros" method="post" action="alterarativos.php">
+		<h3>Editar Ativos</h3>
 	<?php
 		function selected( $value, $selected ){
 		return $value==$selected ? ' selected="selected"' : '';
@@ -119,16 +113,25 @@
 				</div>
 			</fieldset>
 
-				<div class="campo">
+			<fieldset>
+			<div class="campo">
             		<label for="descricao">Descrição do equipamento</label>
             		<textarea rows="6" style="width: 32em" id="descricao" name="descricao" placeholder="<?php echo $row['descricao']; ?>"></textarea>
         		</div>
+			</fieldset>
+				
 
 			<fieldset>
-        		<button type="submit" name="enviar" value="enviar">Alterar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
+        		
+				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+				<button type="submit" name="enviar" value="enviar" class="btn-primary">Alterar</button>
 			</fieldset>
 	</form>
+	</div>
+
 
 </body>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

@@ -7,17 +7,20 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/formstyle.css">
+	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+		
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<title>ARV-DESK</title>
 	 <body>
-	<form class="form" method="post" action="">
+		<div >
+		<form class="form" method="post" action="">
 	
 	<br><br>
-		<h1>Consultar Ativos</h1>
+		<h3>Consultar Ativos</h3>
 		
 		<?php
 		
@@ -104,10 +107,15 @@
 			<?php } ?>
 			</tbody>
 			</table>
-		<fieldset>
-			<input class="botaolink" type='button' value='Voltar' onclick='history.go(-1)'>
+		<fieldset class="consulta-action">
+			<input class="btn-primary" type='button' value='Voltar' onclick='history.go(-1)'>
 		</fieldset>
 		</form>
+		</div>
+	
 	
 	</body>
+	<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 	</html>

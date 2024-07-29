@@ -2,41 +2,40 @@
 <html>
  <head>
   <?php 
+		include ("../conexao.php");
 		include_once ("menu.html");
+		include ("../verificaAcesso.php");
 	 ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="css/formstyle.css">
+	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>ARV-DESK</title>
 </head>
 	<body>
-		<form class="form" method="post" action="alterarchamados.php">
+		<div class="cadastro-content">
+		<form class="form cadastros" method="post" action="alterarchamados.php">
 
- <?php
-	$host = "localhost";
-    $user = "root";
-    $pass = "";
-    $banco = "arvdesk";
-    //Criar a conexao
-    $conexao = mysqli_connect($host, $user, $pass)or die (mysqli_error());
-    mysqli_select_db($conexao, $banco) or die (mysqli_error());
+ 			<?php
 	
-	$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 	
-    $chamada = "SELECT * FROM chamados WHERE id ='$id'";
-	$resultado_usuario = mysqli_query($conexao, $chamada);
-	$row = mysqli_fetch_assoc($resultado_usuario);
+			$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+			
+			$chamada = "SELECT * FROM chamados WHERE id ='$id'";
+			$resultado_usuario = mysqli_query($conexao, $chamada);
+			$row = mysqli_fetch_assoc($resultado_usuario);
 
 	
- ?>
+ 			?>
   		
-		<h1><font color="#072c45">Editar Solicitação</font></h1>
-		<?php
-		function selected( $value, $selected ){
-		return $value==$selected ? ' selected="selected"' : '';
-		}?>
-			<fieldset class="grupo">
+			<h3>Editar Solicitação</h3>
+			<?php
+			function selected( $value, $selected ){
+			return $value==$selected ? ' selected="selected"' : '';
+			}?>
+				<fieldset class="grupo">
 					<input type="hidden" name='id' value="<?php echo $row['id']; ?>">
 					<div class="campo">					
 						<label for=tipo>Tipo Chamado</label>
@@ -129,11 +128,19 @@
             		<label for="descricao">Descrição do Problema</label>
             		<textarea rows="6" style="width: 32em" id="descricao" name="descricao" placeholder="<?php echo $row['descricao']; ?>"></textarea>
         		</div>
-			<div>
-				<button type="submit" name="enviar" value="enviar">Enviar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
-				</div>
 			</fieldset>
+			<fieldset>
+				
+				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+				<button type="submit" name="enviar" value="enviar" class="btn-primary">Enviar</button>
+				</fieldset>
+			</fieldset>
+			</form>
+		</div>
+
 
 </body>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

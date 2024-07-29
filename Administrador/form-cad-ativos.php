@@ -10,11 +10,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>ARV-DESK</title>
 </head>
 <body>
-	<form class="form" method="post" action="cad-ativos-bd.php">
+	<div class="cadastro-content">
+	<form class="form cadastros" method="post" action="cad-ativos-bd.php">
 		<h1>Cadastrar Ativo</h1>
 			<fieldset class="grupo">
 
@@ -31,9 +34,6 @@
 					<label for="NumInventario">Nº de inventário</label>
 					<input type="number" name="NumInventario" id="NumInventario" placeholder="Informe um número" >
 				</div>
-			</fieldset>
-
-			<fieldset class="grupo">
 
 				<div class="campo">
 					<label for="tipo">Tipo</label>
@@ -46,15 +46,14 @@
 							<option value="5">Outros</option>
 						</select>
 				</div>
+			</fieldset>
+
+			<fieldset class="grupo">
 
 				<div class="campo">
 					<label for="nome">Nome</label>
 					<input type="text" name="nome" id="nome" placeholder="Digite o nome para identificação" required>
 				</div>
-
-			</fieldset>
-			
-			<fieldset class="grupo">
 				<div class="campo">
 					<label for="dtaquisicao"> Data de aquisição</label>
 					<input type="date" name="dtaquisicao" id="dtaquisicao" required>
@@ -63,21 +62,15 @@
 					<label for="garantia">Garantia</label>
 					<input type="number" name="garantia" id="garantia" placeholder="Informe o tempo de garantia" >
 				</div>
+
 			</fieldset>
+			
 			
 			<fieldset class="grupo">
 				<div class="campo">
 					<label for="setor">Setor</label>
 					<input type="text" name="setor" id="setor" placeholder="Informe o setor" >
 				</div>
-				<div class="campo">
-					<label for="idUsuario">Id de usuário</label>
-					<input type="number" name="idUsuario" id="idUsuario" placeholder="Informe o id" >
-				</div>
-				
-			</fieldset>
-
-			<fieldset class="grupo">
 				<div class="campo">
 					<label for="fabricante">Fabricante</label>
 						<input type="text" name="fabricante" id="fabricante" placeholder="Informe o fabricante">
@@ -87,6 +80,11 @@
 					<label for="modelo">Modelo</label>
 						<input type="text" name="modelo" id="modelo" placeholder="Informe o modelo" >
 				</div>
+				
+			</fieldset>
+
+			<fieldset class="grupo">
+				
 			</fieldset>
 
 				<div class="campo">
@@ -95,9 +93,15 @@
         		</div>
 
 			<fieldset>
-				<button type="submit" name="enviar" value="enviar">Enviar</button>
-				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;">Limpar</button>
+				
+				<button type="reset" name="limpar" value="limpar" style="margin-right: 15px;" class="btn-default">Limpar</button>
+				<button type="submit" name="enviar" value="enviar" class="btn-primary">Enviar</button>
 			</fieldset>
 	</form>
+	</div>
+
 <body>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

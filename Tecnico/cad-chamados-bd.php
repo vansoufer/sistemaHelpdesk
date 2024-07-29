@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/formstyle.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<title>ARVDESK</title>
 </head>
 <body>
@@ -34,13 +36,13 @@
 	$sql = mysqli_query($conexao,"INSERT INTO  chamados 
 		(tipo, dtAbertura, dtAtender, dtConcluir, NomeRequerente,  setor, tpReparo, numInventario, status, prioridade, atribuicao, descricao) VALUES 
 		('$tipo', '$dtAbertura', '$dtAtender', '$dtConcluir', '$NomeRequerente', '$setor', '$tpReparo', '$numInventario', '$status', '$prioridade','$atribuicao', '$descricao')");
-	echo "
-	<form>
-	<div class='grupo' align='center'>
-	<img src='../imagens/sucesso.png' alt='some text' width=80 height=80 align='center'><br><br>
+	echo "<form>
+	
+	<div class='grupo' align='center' style='margin-top:150px;'>
+	<i class='bi bi-check-circle' style='color:green;font-size:50px'></i><br><br>
 	</div>
 	<div>
-	<font color=#333><center><h1>Cadastro realizado com sucesso !</h1></center>
+	<center><h1>Cadastro realizado com sucesso !</h1></center>
 	</div>
 	</form>
 	";
@@ -48,7 +50,10 @@
 
  ?>
 
- 	<center><a href="form-cad-chamados.php">Clique aqui para novo cadastro</a></center>
+ 	<center><a href="form-cad-chamados.php" color="#134c6f">Clique aqui para novo cadastro</a></center>
 
 </body>
+<footer class="footer">
+			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+		</footer>
 </html>

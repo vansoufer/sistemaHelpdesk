@@ -10,6 +10,7 @@ session_start();
 $consulta = "SELECT * FROM chamados WHERE atribuicao = 1 AND prioridade = 1 ";
 $con = $conexao->query($consulta);
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 
@@ -20,11 +21,11 @@ $con = $conexao->query($consulta);
 		<meta name="description" content="A layout example that shows off a responsive pricing table.">
 		
 
-		<link rel="stylesheet" href="/css/pure/pure-min.css">
-		<link rel="stylesheet" href="/css/pure/grids-responsive-min.css">
-		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
 		<title>ARV-DESK</title>	
 		<link rel="stylesheet" href="../css/formstyle.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+		
 		<style>
 		h1{
 			font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
@@ -80,6 +81,7 @@ $con = $conexao->query($consulta);
 			color: #363636;
 			text-align: center;
 		}
+		
 		</style>
 
 	<script type="text/javascript">
@@ -87,6 +89,7 @@ $con = $conexao->query($consulta);
 		{
 			location.href="Atender.php"
 		}
+	
 	</script>
 	</head>
 	
@@ -101,38 +104,23 @@ $con = $conexao->query($consulta);
 
 		
 	<fieldset class="grupo">
-			<div class="div" align="center">
-		<img src="../imagens/computer02.png" alt="some text" width=90 height=80><br>
-		
-		<?php 
-		date_default_timezone_set("America/Sao_Paulo");
-		echo date('l, ');
-		echo date('d/m/Y H:i:s a');?>
-
-		</font><br><br><br><br>
-		</div>
-			<h1>Solicitações:</h1><br>
-			
-			<div class="pure-button-group" role="group" aria-label="..." align="center" >
-			
-			<button  type="button" class="pure-button" onclick="carregar('chamados_abertos.php')">Abertos</button>
-			<button  type="button" class="pure-button" onclick="carregar('chamados_andamento.php')">Em andamento</button>
-			<button  type="button" class="pure-button" onclick="carregar('chamados_encerrados.php')">Encerrados</button>
-			<button  type="button" class="pure-button" onclick="carregar('chamados_todos.php')">Todos</button>
-
-			</div>
 	
-	
-			<br><br>
 			
-			<div align="center">
-				<h4><font color="#072c45">Explorar:</h4><br>
-				<a href="form-cons-chamados.php"><img src="../imagens/search.png" alt="some text" width=20 height=20> Consultas</a> |
-				<a href="pesquisarrelatorio.php"><img src="../imagens/lapis1.png" alt="some text" width=20 height=20> Relatorios</a> |
-				<a href="form-cad-chamados.php"><img src="../imagens/mais.png" alt="some text" width=20 height=20> Abrir solicitação</a>
-				
-				
-			</div>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link" id="abertas" href="chamados_abertos.php" onclick="activeNav('abertas')">Solicitações abertas</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="andamento" href="chamados_andamento.php" onclick="activeNav('andamento')"> Solicitações em andamento</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="encerradas" href="chamados_encerrados.php" onclick="activeNav('encerradas')">Solicitações encerradas</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " id="todas" href="chamados_todos.php" onclick="activeNav('todas')">Todas as solicitações</a>
+				</li>
+			</ul>
+
 		</fieldset>
 
 		<div id="conteudo"></div>
@@ -142,10 +130,9 @@ $con = $conexao->query($consulta);
 		<script type="text/javascript">
 			function carregar(pagina){
        			$("#conteudo").load(pagina);
-    	}
+			}
+			
 		</script>
-
-
 
 	</body>
 
@@ -154,6 +141,6 @@ $con = $conexao->query($consulta);
 			width: 50%
 			height: 50%;
 		}
+		
 	</style>
-	
 </html>

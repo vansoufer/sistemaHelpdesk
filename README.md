@@ -2,11 +2,6 @@
 
 ## Sistema web para gerenciamento de atividades Help Desk
 
-### Desenvolvido por:
-- Adriana Mataveli Viana
-- José Ricardo Cezario
-- Vanessa Souto Ferreira
-
 ### Ferramentas utilizadas:
 - XAMPP
 - Linguagem de programação: PHP.

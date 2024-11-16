@@ -3,6 +3,7 @@
 	 <?php 
 		 include ("../verificaAcesso.php");
 		include_once ("menu.html");
+		include_once("../conexao.php");
 
 	 ?>
 	<meta charset="utf-8">
@@ -39,20 +40,7 @@
 		
 		$Nome =  $_POST['nome'];
 		
-		
-		
-		$host = "localhost";
-		$user = "root";
-		$pass = "";
-		$banco = "arvdesk";
-		//Criar a conexao
-		$conexao = mysqli_connect($host, $user, $pass)or die (mysqli_error());
-		mysqli_select_db($conexao, $banco) or die (mysqli_error());
-		
-		
-	
-
-			$chamada = "SELECT * FROM chamados WHERE NomeRequerente LIKE '%".$Nome."%' LIMIT 5";
+		$chamada = "SELECT * FROM chamados WHERE NomeRequerente LIKE '%".$Nome."%' LIMIT 5";
 		
 		
 		

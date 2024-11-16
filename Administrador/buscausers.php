@@ -2,6 +2,7 @@
 	 <head>
 	 <?php 
 		include_once ("menu.html");
+		include_once("../conexao.php");
 
 	 ?>
 	<meta charset="utf-8">
@@ -27,18 +28,7 @@
 		
 		$status = $_POST['status'];
 		$nivel = $_POST['nivel'];
-		$pesquisar = $_POST['pesquisar']; 
-		
-		$host = "localhost";
-		$user = "root";
-		$pass = "";
-		$banco = "arvdesk";
-		//Criar a conexao
-		$conexao = mysqli_connect($host, $user, $pass)or die (mysqli_error());
-		mysqli_select_db($conexao, $banco) or die (mysqli_error());
-		
-		
-		
+		$pesquisar = $_POST['pesquisar']; 	
 		
 		if(($status == 'habilitado') || ($status == 'desabilitado')){
 
@@ -105,6 +95,6 @@
 	
 	</body>
 	<footer class="footer">
-			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+			<i class="bi bi-code-slash"></i> Desenvolvido por Adriana Mataveli, José Ricardo e Vanessa Souto.
 		</footer>
 	</html>

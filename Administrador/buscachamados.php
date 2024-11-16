@@ -3,6 +3,7 @@
 	 <?php 
 	 	include ("../verificaAcesso.php");
 		include_once ("menu.html");
+		include_once("../conexao.php");
 
 	 ?>
 	<meta charset="utf-8">
@@ -29,18 +30,7 @@
 		$status = $_POST['status'];
 		$prioridade =  $_POST['prioridade'];
 		$tipo = $_POST['tipo'];
-		
-		
-		$host = "localhost";
-		$user = "root";
-		$pass = "";
-		$banco = "arvdesk";
-		//Criar a conexao
-		$conexao = mysqli_connect($host, $user, $pass)or die (mysqli_error());
-		mysqli_select_db($conexao, $banco) or die (mysqli_error());
-		
-		
-				
+	
 		if(($status == '1') || ($status == '2') || ($status == '0')){
 
 			$chamada = "SELECT * FROM chamados WHERE status LIKE '%".$status."%' LIMIT 5";
@@ -115,6 +105,6 @@
 	
 	</body>
 	<footer class="footer">
-			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+			<i class="bi bi-code-slash"></i> Desenvolvido por Adriana Mataveli, José Ricardo e Vanessa Souto.
 		</footer>
 	</html>

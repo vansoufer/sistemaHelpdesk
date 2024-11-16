@@ -3,6 +3,7 @@
 	 <?php 
 	 	include ("../verificaAcesso.php");
 		include_once ("menu.html");
+		include_once("../conexao.php");
 	 ?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,16 +28,6 @@
 		$status = $_POST['status'];
 		$tipo = $_POST['tipo'];
 		$fabricante = $_POST['fab']; 
-		
-		$host = "localhost";
-		$user = "root";
-		$pass = "";
-		$banco = "arvdesk";
-		//Criar a conexao
-		$conexao = mysqli_connect($host, $user, $pass)or die (mysqli_error());
-		mysqli_select_db($conexao, $banco) or die (mysqli_error());
-		
-		
 				
 		if(($status == '1') || ($status == '0')){
 
@@ -116,6 +107,6 @@
 	
 	</body>
 	<footer class="footer">
-			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+			<i class="bi bi-code-slash"></i> Desenvolvido por Adriana Mataveli, José Ricardo e Vanessa Souto.
 		</footer>
 	</html>

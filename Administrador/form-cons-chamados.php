@@ -72,7 +72,7 @@
 	
 </body>
 <footer class="footer">
-			<i class="bi bi-code-slash"></i> Desenvolvido por Vanessa Souto
+			<i class="bi bi-code-slash"></i> Desenvolvido por Adriana Mataveli, José Ricardo e Vanessa Souto.
 		</footer>
 
 
